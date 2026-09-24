@@ -350,11 +350,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
   .vergleiche { grid-template-columns: repeat(3, 1fr); gap: 48px 24px; }
   .vergleich--gross { grid-column: 1 / -1; }
 }
-/* Zwei ganze Bilder nebeneinander. Spaltenbreiten im Verhältnis der Bildformate
-   (0,75 Hochformat zu 1,106), damit beide Bilder gleich hoch sind. */
+/* Zwei gleich große, quadratische Bilder nebeneinander (am Handy untereinander). */
 .paar { display: grid; gap: 12px; grid-template-columns: 1fr; }
 @media (min-width: 640px) {
-  .paar { grid-template-columns: 75fr 110.6fr; }
+  .paar { grid-template-columns: 1fr 1fr; }
 }
 .paar__bild {
   position: relative;
@@ -866,15 +865,15 @@ html:not(.js) .recht__schliessen { display: none; }
       </div>
 
       <div class="vergleiche">
-        <!-- Ganze Bilder nebeneinander statt Regler, weil Vorher (Hochformat) und Nachher (fast quadratisch) unterschiedliche Formate haben. -->
+        <!-- Zwei gleich große, quadratische Bilder nebeneinander statt Regler. -->
         <figure class="vergleich vergleich--gross">
           <div class="paar">
             <div class="paar__bild">
-              <img src="wildwuchs-vorher.jpg" alt="Vorher: Fläche zwischen Garage und rotem Holzhaus mit Gestrüpp und Wildwuchs zugewachsen" width="900" height="1200" loading="lazy" decoding="async">
+              <img src="wildwuchs-vorher.jpg" alt="Vorher: Fläche zwischen Garage und rotem Holzhaus mit Gestrüpp und Wildwuchs zugewachsen" width="1200" height="1200" loading="lazy" decoding="async">
               <span class="compare__etikett compare__etikett--vorher" aria-hidden="true">Vorher</span>
             </div>
             <div class="paar__bild">
-              <img src="wildwuchs-nachher.jpg" alt="Nachher: Fläche zwischen Garage und rotem Holzhaus komplett freigeräumt" width="1200" height="1085" loading="lazy" decoding="async">
+              <img src="wildwuchs-nachher.jpg" alt="Nachher: Fläche zwischen Garage und rotem Holzhaus komplett freigeräumt" width="1200" height="1200" loading="lazy" decoding="async">
               <span class="compare__etikett compare__etikett--nachher" aria-hidden="true">Nachher</span>
             </div>
           </div>
