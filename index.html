@@ -43,10 +43,10 @@
   --hecke-hover: #244F32;
   --gras: #A9D46F;
   --gras-hover: #BADF86;
-  --grund: #F4F7F1;
-  --grund-2: #E8F0E2;
+  --grund: #E9F2E1;
+  --grund-2: #D6E8C8;
   --weiss: #FFFFFF;
-  --linie: #D6E0CF;
+  --linie: #C6DAB8;
   --text: #16261C;
   --text-leise: #4B5C50;
   --fehler: #B42318;
@@ -63,7 +63,6 @@
 
   /* Rasenstreifen wie nach dem Mähen */
   --maehstreifen-dunkel: repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 88px, rgba(255,255,255,0) 88px 176px);
-  --maehstreifen-hell: repeating-linear-gradient(90deg, #E3ECDC 0 120px, #ECF2E7 120px 240px);
 
   color-scheme: light;
 }
@@ -117,8 +116,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
   padding-inline: var(--gutter);
 }
 .band { padding-block: clamp(72px, 10vw, 128px); }
-.band--weiss { background: var(--weiss); }
-.band--streifen { background: var(--maehstreifen-hell); }
+.band--weiss { background: #F5F9F1; }
+.band--streifen { background: var(--maehstreifen-dunkel), var(--hecke); color: #fff; }
+.band--streifen h2 { color: #fff; }
 
 .sr-only {
   position: absolute !important;
@@ -161,7 +161,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   height: var(--header-h);
-  background: rgba(244, 247, 241, 0.9);
+  background: rgba(233, 242, 225, 0.92);
   -webkit-backdrop-filter: saturate(1.4) blur(10px);
   backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid transparent;
@@ -466,16 +466,17 @@ figure { margin: 0; }
 @media (min-width: 1024px) { .gruende { grid-template-columns: repeat(4, 1fr); } }
 .grund {
   padding: 24px;
-  background: rgba(255,255,255,0.78);
+  background: rgba(23, 51, 35, 0.35);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--r-lg);
 }
-.grund h3 { color: var(--tanne); }
+.grund h3 { color: #fff; }
 .grund h3::before {
   content: ""; display: block;
   width: 28px; height: 4px; margin-bottom: 16px;
-  border-radius: 2px; background: var(--hecke);
+  border-radius: 2px; background: var(--gras);
 }
-.grund p { margin-top: 10px; color: var(--text-leise); font-size: 1rem; }
+.grund p { margin-top: 10px; color: rgba(255,255,255,0.84); font-size: 1rem; }
 
 /* ============ Kontakt ============ */
 .kontakt { display: grid; gap: 32px; grid-template-columns: 1fr; align-items: start; }
@@ -855,10 +856,10 @@ html:not(.js) .recht__schliessen { display: none; }
       <div class="vergleiche">
         <figure class="vergleich vergleich--gross">
           <div class="compare">
-            <img src="wildwuchs-nachher.jpg" alt="Nachher: freigeräumte Fläche am Hofplatz, Wildwuchs und Gestrüpp entfernt" width="1600" height="1067" loading="lazy" decoding="async">
+            <img src="wildwuchs-nachher.jpg" alt="Nachher: Fläche zwischen Garage und rotem Holzhaus komplett freigeräumt" width="1200" height="800" loading="lazy" decoding="async">
             <span class="compare__etikett compare__etikett--nachher" aria-hidden="true">Nachher</span>
             <div class="compare__vorher">
-              <img src="wildwuchs-vorher.jpg" alt="Vorher: Fläche am Hofplatz komplett mit Gestrüpp und Wildwuchs zugewachsen" width="1600" height="1067" loading="lazy" decoding="async">
+              <img src="wildwuchs-vorher.jpg" alt="Vorher: Fläche zwischen Garage und rotem Holzhaus mit Gestrüpp und Wildwuchs zugewachsen" width="1200" height="800" loading="lazy" decoding="async">
               <span class="compare__etikett compare__etikett--vorher" aria-hidden="true">Vorher</span>
             </div>
             <div class="compare__griff" aria-hidden="true">
