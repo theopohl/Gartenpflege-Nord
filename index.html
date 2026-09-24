@@ -349,8 +349,20 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 @media (min-width: 900px) {
   .vergleiche { grid-template-columns: repeat(3, 1fr); gap: 48px 24px; }
   .vergleich--gross { grid-column: 1 / -1; }
-  .vergleich--gross .compare { aspect-ratio: 16 / 9; }
 }
+/* Zwei ganze Bilder nebeneinander. Spaltenbreiten im Verhältnis der Bildformate
+   (0,75 Hochformat zu 1,106), damit beide Bilder gleich hoch sind. */
+.paar { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) {
+  .paar { grid-template-columns: 75fr 110.6fr; }
+}
+.paar__bild {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--grund-2);
+}
+.paar__bild img { width: 100%; height: auto; }
 .vergleich figcaption { margin-top: 16px; }
 .vergleich figcaption h3 { color: var(--tanne); }
 .vergleich figcaption p { margin-top: 4px; color: var(--text-leise); font-size: 1rem; }
@@ -850,22 +862,21 @@ html:not(.js) .recht__schliessen { display: none; }
     <div class="wrap">
       <div class="section-head">
         <h2 id="vn-titel">Vorher, nachher.</h2>
-        <p>Ziehen Sie den Regler zur Seite: links, wie wir den Garten vorgefunden haben, rechts, wie wir ihn verlassen haben.</p>
+        <p>So sahen die Gärten aus, bevor wir kamen, und so, als wir fertig waren. Bei den kleineren Bildern den Regler einfach zur Seite ziehen.</p>
       </div>
 
       <div class="vergleiche">
+        <!-- Ganze Bilder nebeneinander statt Regler, weil Vorher (Hochformat) und Nachher (fast quadratisch) unterschiedliche Formate haben. -->
         <figure class="vergleich vergleich--gross">
-          <div class="compare">
-            <img src="wildwuchs-nachher.jpg" alt="Nachher: Fläche zwischen Garage und rotem Holzhaus komplett freigeräumt" width="1200" height="800" loading="lazy" decoding="async">
-            <span class="compare__etikett compare__etikett--nachher" aria-hidden="true">Nachher</span>
-            <div class="compare__vorher">
-              <img src="wildwuchs-vorher.jpg" alt="Vorher: Fläche zwischen Garage und rotem Holzhaus mit Gestrüpp und Wildwuchs zugewachsen" width="1200" height="800" loading="lazy" decoding="async">
+          <div class="paar">
+            <div class="paar__bild">
+              <img src="wildwuchs-vorher.jpg" alt="Vorher: Fläche zwischen Garage und rotem Holzhaus mit Gestrüpp und Wildwuchs zugewachsen" width="900" height="1200" loading="lazy" decoding="async">
               <span class="compare__etikett compare__etikett--vorher" aria-hidden="true">Vorher</span>
             </div>
-            <div class="compare__griff" aria-hidden="true">
-              <span class="compare__knopf"><svg><use href="#i-pfeile"/></svg></span>
+            <div class="paar__bild">
+              <img src="wildwuchs-nachher.jpg" alt="Nachher: Fläche zwischen Garage und rotem Holzhaus komplett freigeräumt" width="1200" height="1085" loading="lazy" decoding="async">
+              <span class="compare__etikett compare__etikett--nachher" aria-hidden="true">Nachher</span>
             </div>
-            <input class="compare__regler sr-only" type="range" min="0" max="100" value="50" step="1" aria-label="Vorher-Nachher-Vergleich Wildwuchs: Anteil des Vorher-Bildes">
           </div>
           <figcaption>
             <h3>Wildwuchs entfernt</h3>
